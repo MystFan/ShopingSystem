@@ -33,7 +33,7 @@
 	
 # More Info
 
-#### Shoping System - helps other people with difficulties to get their essentials shoping
+#### Shoping System - helps other people to get their essentials shoping
 &nbsp;
 ### The project also use implementation of CQRS pattern
 - There is separation of the read and write operations
