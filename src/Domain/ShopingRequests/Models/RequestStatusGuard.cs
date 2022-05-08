@@ -1,7 +1,7 @@
 ﻿namespace ShopingRequestSystem.Domain.ShopingRequests.Models
 {
     using ShopingRequestSystem.Domain.Common;
-    using ShopingRequestSystem.Domain.PublishedShopingRequests.Exceptions;
+    using ShopingRequestSystem.Domain.ShopingRequests.Exceptions;
 
     public static class RequestStatusGuard
     {
@@ -10,38 +10,41 @@
         {
             switch (status)
             {
-                case RequestStatus value when value.Equals(RequestStatus.New):
-                    ForValidStatusFromNew<InvalidPublishedShopingRequestException>(newStatus, status, name);
+                case RequestStatus value when value.Equals(RequestStatus.Open):
+                    ForValidStatusFromOpen<InvalidShopingRequestException>(newStatus, status, name);
                     break;
                 case RequestStatus value when value.Equals(RequestStatus.Published):
-                    ForValidStatusFromPublished<InvalidPublishedShopingRequestException>(newStatus, status, name);
+                    ForValidStatusFromPublished<InvalidShopingRequestException>(newStatus, status, name);
                     break;
                 case RequestStatus value when value.Equals(RequestStatus.InProgress):
-                    ForValidStatusFromInProgress<InvalidPublishedShopingRequestException>(newStatus, status, name);
+                    ForValidStatusFromInProgress<InvalidShopingRequestException>(newStatus, status, name);
                     break;
                 case RequestStatus value when value.Equals(RequestStatus.Completed):
-                    ForValidStatusFromCompleted<InvalidPublishedShopingRequestException>(newStatus, status, name);
+                    ForValidStatusFromCompleted<InvalidShopingRequestException>(newStatus, status, name);
+                    break;
+                case RequestStatus value when value.Equals(RequestStatus.Closed):
+                    ForValidStatusFromClosed<InvalidShopingRequestException>(newStatus, status, name);
                     break;
                 default:
                     break;
             }
         }
 
-        private static void ForValidStatusFromNew<TException>(RequestStatus newStatus, RequestStatus status, string name = "Value")
+        private static void ForValidStatusFromOpen<TException>(RequestStatus newStatus, RequestStatus status, string name = "Value")
             where TException : BaseDomainException, new()
         {
-            if (newStatus.Equals(RequestStatus.Published) && status.Equals(RequestStatus.New))
+            if (newStatus.Equals(RequestStatus.Published) && status.Equals(RequestStatus.Open))
             {
                 return;
             }
 
-            ThrowException<TException>($"Cannot change status from \"{RequestStatus.New.Name}\" to \"{newStatus.Name}\".");
+            ThrowException<TException>($"Cannot change status from \"{RequestStatus.Open.Name}\" to \"{newStatus.Name}\".");
         }
 
         private static void ForValidStatusFromPublished<TException>(RequestStatus newStatus, RequestStatus status, string name = "Value")
             where TException : BaseDomainException, new()
         {
-            if ((newStatus.Equals(RequestStatus.InProgress) || (newStatus.Equals(RequestStatus.New)))
+            if ((newStatus.Equals(RequestStatus.InProgress) || newStatus.Equals(RequestStatus.Open))
                 && status.Equals(RequestStatus.Published))
             {
                 return;
@@ -53,7 +56,7 @@
         private static void ForValidStatusFromInProgress<TException>(RequestStatus newStatus, RequestStatus status, string name = "Value")
             where TException : BaseDomainException, new()
         {
-            if (newStatus.Equals(RequestStatus.Published) && status.Equals(RequestStatus.InProgress))
+            if (newStatus.Equals(RequestStatus.Completed) && status.Equals(RequestStatus.InProgress))
             {
                 return;
             }
@@ -64,13 +67,25 @@
         private static void ForValidStatusFromCompleted<TException>(RequestStatus newStatus, RequestStatus status, string name = "Value")
             where TException : BaseDomainException, new()
         {
-            if (newStatus.Equals(RequestStatus.InProgress) && status.Equals(RequestStatus.Completed))
+            if (newStatus.Equals(RequestStatus.Closed) && status.Equals(RequestStatus.Completed))
             {
                 return;
             }
 
             ThrowException<TException>($"Cannot change status from \"{RequestStatus.Completed.Name}\" to \"{newStatus.Name}\".");
         }
+
+        private static void ForValidStatusFromClosed<TException>(RequestStatus newStatus, RequestStatus status, string name = "Value")
+            where TException : BaseDomainException, new()
+        {
+            if (newStatus.Equals(RequestStatus.Closed) && status.Equals(RequestStatus.Closed))
+            {
+                return;
+            }
+
+            ThrowException<TException>($"Cannot change status from \"{RequestStatus.Closed.Name}\" to \"{newStatus.Name}\".");
+        }
+
 
         private static void ThrowException<TException>(string message)
             where TException : BaseDomainException, new()

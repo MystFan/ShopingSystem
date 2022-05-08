@@ -32,9 +32,16 @@
                 errors.Add($"{shopingRequest.Requester.Name} is not the request creator");
             }
 
-            if (!shopingRequest.Status.Equals(RequestStatus.New))
+            if (!shopingRequest.Status.Equals(RequestStatus.Open)
+                && !shopingRequest.Status.Equals(RequestStatus.Published))
             {
-                errors.Add($"Can edit request only in status 'New'.");
+                errors.Add($"Can edit request only in status '{nameof(RequestStatus.Open)}' or '{nameof(RequestStatus.Published)}'.");
+            }
+
+            if (!shopingRequest.Status.Equals(RequestStatus.Open)
+                && shopingRequest.PaymentSum != request.PaymentSum)
+            {
+                errors.Add($"Can't change payment sum in status different from '{nameof(RequestStatus.Open)}'.");
             }
 
             Result result = errors.Any() ? Result.Failure(errors) : Result.Success;

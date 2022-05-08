@@ -43,7 +43,7 @@
                 .WithDescription(request.Description)
                 .WithDeliveryAddress(request.DeliveryAddress)
                 .WithPaymentSum(request.PaymentSum)
-                .WithStatus(RequestStatus.New)
+                .WithStatus(RequestStatus.Open)
                 .Build();
 
             await this.shopingRequestRepository.Save(shopingRequest, cancellationToken);

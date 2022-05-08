@@ -4,10 +4,11 @@
 
     public class RequestStatus : Enumeration
     {
-        public static readonly RequestStatus New = new RequestStatus(1, nameof(New));
+        public static readonly RequestStatus Open = new RequestStatus(1, nameof(Open));
         public static readonly RequestStatus Published = new RequestStatus(2, nameof(Published));
         public static readonly RequestStatus InProgress = new RequestStatus(3, nameof(InProgress));
         public static readonly RequestStatus Completed = new RequestStatus(4, nameof(Completed));
+        public static readonly RequestStatus Closed = new RequestStatus(5, nameof(Closed));
 
         private RequestStatus(int value)
             : this(value, FromValue<RequestStatus>(value).Name)
