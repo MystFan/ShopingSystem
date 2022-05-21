@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <UserSecretsId>aspnet-ShopingRequestSystem.Startup-1976B3A2-D65F-41CC-8D5F-2333C15D5A90</UserSecretsId>
+    <UserSecretsId>31841a19-fce0-41f5-aae5-73f2b899643e</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,10 +14,13 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.14" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\ShopingRequestSystem.Domain.csproj" />
+    <ProjectReference Include="..\Application\ShopingRequestSystem.Application\ShopingRequestSystem.Application.csproj" />
+    <ProjectReference Include="..\Application\ShopingRequestSystem.Queries\ShopingRequestSystem.Queries.csproj" />
     <ProjectReference Include="..\Infrastructure\ShopingRequestSystem.Infrastructure.csproj" />
     <ProjectReference Include="..\Web\ShopingRequestSystem.Web.csproj" />
   </ItemGroup>

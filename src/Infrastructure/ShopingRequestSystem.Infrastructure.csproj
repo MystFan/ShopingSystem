@@ -15,8 +15,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Application\ShopingRequestSystem.Application.csproj" />
-    <ProjectReference Include="..\Domain\ShopingRequestSystem.Domain.csproj" />
+    <ProjectReference Include="..\Application\ShopingRequestSystem.Application\ShopingRequestSystem.Application.csproj" />
+    <ProjectReference Include="..\Application\ShopingRequestSystem.Queries\ShopingRequestSystem.Queries.csproj" />
+    <ProjectReference Include="..\Domain\ShopingRequestSystem.Domain.Identity\ShopingRequestSystem.Domain.Identity.csproj" />
+    <ProjectReference Include="..\Domain\ShopingRequestSystem.Domain.PublishedRequests\ShopingRequestSystem.Domain.PublishedRequests.csproj" />
+    <ProjectReference Include="..\Domain\ShopingRequestSystem.Domain.RequestExecutions\ShopingRequestSystem.Domain.RequestExecutions.csproj" />
+    <ProjectReference Include="..\Domain\ShopingRequestSystem.Domain.Requests\ShopingRequestSystem.Domain.Requests.csproj" />
   </ItemGroup>
 
 </Project>

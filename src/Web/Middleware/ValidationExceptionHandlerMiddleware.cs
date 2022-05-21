@@ -7,7 +7,7 @@
     using Microsoft.AspNetCore.Http;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Serialization;
-    using ShopingRequestSystem.Application.Common.Exceptions;
+    using ShopingRequestSystem.Application.Exceptions;
     using ShopingRequestSystem.Domain.Common;
 
     public class ValidationExceptionHandlerMiddleware

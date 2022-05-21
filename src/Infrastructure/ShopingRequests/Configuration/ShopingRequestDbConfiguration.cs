@@ -2,10 +2,9 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using ShopingRequestSystem.Domain.ShopingRequests.Models;
-    using static ShopingRequestSystem.Domain.Shared.ModelConstants.ShopingRequest;
-    using static ShopingRequestSystem.Domain.ShopingRequests.Models.ModelConstants.Common;
-    using static ShopingRequestSystem.Domain.ShopingRequests.Models.ModelConstants.ShopingRequest;
+    using ShopingRequestSystem.Domain.Requests.Models;
+    using static ShopingRequestSystem.Domain.Requests.Models.ModelConstants.Common;
+    using static ShopingRequestSystem.Domain.Requests.Models.ModelConstants.ShopingRequest;
 
     internal sealed class ShopingRequestDbConfiguration : IEntityTypeConfiguration<ShopingRequest>
     {

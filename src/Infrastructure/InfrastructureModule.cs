@@ -1,7 +1,6 @@
 ﻿namespace ShopingRequestSystem.Infrastructure
 {
     using Autofac;
-    using ShopingRequestSystem.Application.Common.Contracts;
     using ShopingRequestSystem.Domain.Common;
     using ShopingRequestSystem.Infrastructure.Common;
     using ShopingRequestSystem.Infrastructure.Common.Events;
@@ -25,11 +24,6 @@
 
             builder.RegisterAssemblyTypes(System.Reflection.Assembly.GetExecutingAssembly())
                 .AsClosedTypesOf(typeof(IDomainRepository<>))
-                .AsImplementedInterfaces()
-                .InstancePerDependency();
-
-            builder.RegisterAssemblyTypes(System.Reflection.Assembly.GetExecutingAssembly())   
-                .AsClosedTypesOf(typeof(IQueryRepository<>))
                 .AsImplementedInterfaces()
                 .InstancePerDependency();
         }

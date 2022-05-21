@@ -7,8 +7,8 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.IdentityModel.Tokens;
-    using ShopingRequestSystem.Application.Common;
-    using ShopingRequestSystem.Application.Identity;
+    using ShopingRequestSystem.Application.Identity.Commands;
+    using ShopingRequestSystem.Infrastructure.Common;
     using ShopingRequestSystem.Infrastructure.Common.Persistence;
     using ShopingRequestSystem.Infrastructure.Identity;
 

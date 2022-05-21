@@ -3,7 +3,7 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using ShopingRequestSystem.Domain.RequestExecutions.Models;
-    using static ShopingRequestSystem.Domain.Shared.ModelConstants.ShopingRequest;
+    using static ShopingRequestSystem.Domain.RequestExecutions.Models.ModelConstants.ShopingRequest;
     using static ShopingRequestSystem.Domain.RequestExecutions.Models.ModelConstants.RequestExecution;
 
     internal sealed class RequestExecutionDbConfiguration : IEntityTypeConfiguration<RequestExecution>

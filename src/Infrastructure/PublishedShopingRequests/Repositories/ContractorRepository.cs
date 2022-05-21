@@ -7,29 +7,21 @@
     using System.Linq.Expressions;
     using System.Threading;
     using System.Threading.Tasks;
-    using ShopingRequestSystem.Application.PublishedShopingRequests.Contractors;
-    using ShopingRequestSystem.Application.PublishedShopingRequests.Contractors.Queries.Details;
-    using ShopingRequestSystem.Domain.PublishedShopingRequests.Exceptions;
-    using ShopingRequestSystem.Domain.PublishedShopingRequests.Models;
-    using ShopingRequestSystem.Domain.PublishedShopingRequests.Repositories;
+    using ShopingRequestSystem.Domain.PublishedRequests.Exceptions;
     using ShopingRequestSystem.Infrastructure.Common.Persistence;
+    using ShopingRequestSystem.Queries.PublishedShopingRequests.Contractors;
+    using ShopingRequestSystem.Queries.PublishedShopingRequests.Contractors.Details;
+    using ShopingRequestSystem.Domain.PublishedRequests.Models;
+    using ShopingRequestSystem.Domain.PublishedRequests.Repositories;
 
     internal class ContractorRepository : DataRepository<IPublishedShopingRequestDbContext, Contractor>,
-        IContractorDomainRepository,
-        IContractorQueryRepository
+        IContractorDomainRepository
     {
         private readonly IMapper mapper;
 
         public ContractorRepository(IPublishedShopingRequestDbContext db, IMapper mapper)
             : base(db)
             => this.mapper = mapper;
-
-        public async Task<ContractorDetailsOutputModel> GetDetails(int id, CancellationToken cancellationToken = default)
-            => await this.mapper
-                .ProjectTo<ContractorDetailsOutputModel>(this
-                    .All()
-                    .Where(d => d.Id == id))
-                .FirstOrDefaultAsync(cancellationToken);
 
         public Task<int> GetContractorId(
             string userId,

@@ -5,7 +5,6 @@
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Identity;
     using ShopingRequestSystem.Application.Common;
-    using ShopingRequestSystem.Application.Identity;
     using ShopingRequestSystem.Application.Identity.Commands;
     using ShopingRequestSystem.Application.Identity.Commands.ChangePassword;
     using ShopingRequestSystem.Application.Identity.Commands.LoginUser;

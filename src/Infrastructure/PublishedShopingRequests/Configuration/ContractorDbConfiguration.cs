@@ -2,8 +2,8 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using ShopingRequestSystem.Domain.PublishedShopingRequests.Models;
-    using static ShopingRequestSystem.Domain.PublishedShopingRequests.Models.ModelConstants.Contractor;
+    using ShopingRequestSystem.Domain.PublishedRequests.Models;
+    using static ShopingRequestSystem.Domain.PublishedRequests.Models.ModelConstants.Contractor;
 
     internal sealed class ContractorDbConfiguration : IEntityTypeConfiguration<Contractor>
     {

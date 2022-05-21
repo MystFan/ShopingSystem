@@ -2,8 +2,8 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using ShopingRequestSystem.Domain.ShopingRequests.Models;
-    using static ShopingRequestSystem.Domain.ShopingRequests.Models.ModelConstants.Requester;
+    using ShopingRequestSystem.Domain.Requests.Models;
+    using static ShopingRequestSystem.Domain.Requests.Models.ModelConstants.Requester;
 
     internal sealed class RequesterDbConfiguration : IEntityTypeConfiguration<Requester>
     {

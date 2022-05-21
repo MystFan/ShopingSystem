@@ -3,8 +3,8 @@
     using Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using ShopingRequestSystem.Domain.PublishedShopingRequests.Models;
-    using ShopingRequestSystem.Domain.ShopingRequests.Models;
+    using ShopingRequestSystem.Domain.PublishedRequests.Models;
+    using ShopingRequestSystem.Domain.Requests.Models;
 
     public class UserConfiguration : IEntityTypeConfiguration<User>
     {

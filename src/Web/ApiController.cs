@@ -14,7 +14,7 @@
         public const string PathSeparator = "/";
         public const string Id = "{id}";
 
-        private IMediator? mediator;
+        private IMediator mediator;
 
         protected IMediator Mediator
             => this.mediator ??= this.HttpContext

@@ -17,9 +17,12 @@
 	 - Startup
 		- Web app configurations
 
+# Software Dependencies
+ - [Docker](https://www.docker.com/get-started/)
 
 # Run the project
-	dotnet run
+	docker-compose build
+	docker-compose up
 
 # Resources
 - [.NET 5](https://github.com/dotnet)
@@ -33,7 +36,16 @@
 	
 # More Info
 
-#### Shoping System - helps other people with difficulties to get their essentials shoping
+#### Shoping System - helps other people to get their essentials shoping
+&nbsp;
+
+## Database Diagram
+![Database Diagram](diagrams/dbdiagram.png)
+&nbsp;
+## Shoping Request Flow Diagram
+![Shoping Request Flow Diagram](diagrams/DomainDrivenDesign.png)
+
+&nbsp;
 &nbsp;
 ### The project also use implementation of CQRS pattern
 - There is separation of the read and write operations
@@ -41,3 +53,21 @@ with command and query handlers
 
 ### The project also use implementation Repository Pattern
 - There are database repositories for every domain model
+
+### The project also use implementation of Specification Pattern
+- Used for quering shoping requests
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

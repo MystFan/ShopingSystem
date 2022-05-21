@@ -1,7 +1,7 @@
 ﻿namespace ShopingRequestSystem.Infrastructure.ShopingRequests
 {
     using Microsoft.EntityFrameworkCore;
-    using ShopingRequestSystem.Domain.ShopingRequests.Models;
+    using ShopingRequestSystem.Domain.Requests.Models;
     using ShopingRequestSystem.Infrastructure.Common.Persistence;
 
     internal interface IShopingRequestDbContext : IDbContext

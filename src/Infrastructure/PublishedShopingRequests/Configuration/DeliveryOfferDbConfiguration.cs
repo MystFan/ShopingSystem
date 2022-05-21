@@ -2,7 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using ShopingRequestSystem.Domain.PublishedShopingRequests.Models;
+    using ShopingRequestSystem.Domain.PublishedRequests.Models;
 
     internal sealed class DeliveryOfferDbConfiguration : IEntityTypeConfiguration<DeliveryOffer>
     {

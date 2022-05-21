@@ -7,29 +7,19 @@
     using System.Threading.Tasks;
     using AutoMapper;
     using Microsoft.EntityFrameworkCore;
-    using ShopingRequestSystem.Application.ShopingRequests.Requesters;
-    using ShopingRequestSystem.Application.ShopingRequests.Requesters.Queries.Details;
-    using ShopingRequestSystem.Domain.ShopingRequests.Exceptions;
-    using ShopingRequestSystem.Domain.ShopingRequests.Models;
-    using ShopingRequestSystem.Domain.ShopingRequests.Repositories;
+    using ShopingRequestSystem.Domain.Requests.Exceptions;
+    using ShopingRequestSystem.Domain.Requests.Models;
+    using ShopingRequestSystem.Domain.Requests.Repositories;
     using ShopingRequestSystem.Infrastructure.Common.Persistence;
 
     internal class RequesterRepository : DataRepository<IShopingRequestDbContext, Requester>,
-        IRequesterDomainRepository,
-        IRequesterQueryRepository
+        IRequesterDomainRepository
     {
         private readonly IMapper mapper;
 
         public RequesterRepository(IShopingRequestDbContext db, IMapper mapper)
             : base(db) 
             => this.mapper = mapper;
-
-        public async Task<RequesterDetailsOutputModel> GetDetails(int id, CancellationToken cancellationToken = default)
-            => await this.mapper
-                .ProjectTo<RequesterDetailsOutputModel>(this
-                    .All()
-                    .Where(d => d.Id == id))
-                .FirstOrDefaultAsync(cancellationToken);
 
         public Task<int> GetRequesterId(
             string userId, 

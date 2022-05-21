@@ -1,7 +1,7 @@
 ﻿namespace ShopingRequestSystem.Infrastructure.Common
 {
     using System.Linq;
-    using ShopingRequestSystem.Application.Common;
+    using ShopingRequestSystem.Queries.Common;
 
     public static class QueryableExtensions
     {

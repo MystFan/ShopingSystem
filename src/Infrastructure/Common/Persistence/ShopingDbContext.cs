@@ -9,9 +9,9 @@
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
     using ShopingRequestSystem.Domain.Common.Models;
-    using ShopingRequestSystem.Domain.PublishedShopingRequests.Models;
+    using ShopingRequestSystem.Domain.PublishedRequests.Models;
     using ShopingRequestSystem.Domain.RequestExecutions.Models;
-    using ShopingRequestSystem.Domain.ShopingRequests.Models;
+    using ShopingRequestSystem.Domain.Requests.Models;
     using ShopingRequestSystem.Infrastructure.Identity;
     using ShopingRequestSystem.Infrastructure.PublishedShopingRequests;
     using ShopingRequestSystem.Infrastructure.RequestExecutions;
