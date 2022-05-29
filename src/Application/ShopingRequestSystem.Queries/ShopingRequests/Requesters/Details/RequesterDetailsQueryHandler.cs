@@ -6,14 +6,14 @@
 
     internal class RequesterDetailsQueryHandler : IRequestHandler<RequesterDetailsQuery<RequesterDetailsModel>, RequesterDetailsModel>
     {
-        private readonly IRequesterQueryRepository requesterRepository;
+        private readonly IRequesterDataSource requesterDataSource;
 
-        public RequesterDetailsQueryHandler(IRequesterQueryRepository requesterRepository)
-            => this.requesterRepository = requesterRepository;
+        public RequesterDetailsQueryHandler(IRequesterDataSource requesterDataSource)
+            => this.requesterDataSource = requesterDataSource;
 
         public async Task<RequesterDetailsModel> Handle(
             RequesterDetailsQuery<RequesterDetailsModel> request,
             CancellationToken cancellationToken)
-            => await requesterRepository.GetDeatailsAsync(request.Id, cancellationToken);
+            => await requesterDataSource.GetDeatailsAsync(request.Id, cancellationToken);
     }
 }

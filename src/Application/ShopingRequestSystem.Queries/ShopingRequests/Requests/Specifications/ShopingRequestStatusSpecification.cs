@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using Microsoft.Data.SqlClient;
+    using System.Data.SqlClient;
     using System.Linq.Expressions;
     using ShopingRequestSystem.Queries.Common;
     using ShopingRequestSystem.Queries.ShopingRequests.Requests.Details;

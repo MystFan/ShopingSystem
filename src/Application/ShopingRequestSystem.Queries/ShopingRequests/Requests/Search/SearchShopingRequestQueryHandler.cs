@@ -14,11 +14,11 @@
         IRequestHandler<SearchShopingRequestQuery, SearchShopingRequestModel>
     {
         private const int PerPage = 10;
-        private readonly IShopingRequestQueryRepository shopingRequestRepository;
+        private readonly IShopingRequestDataSource shopingRequestDataSource;
 
-        public SearchShopingRequestQueryHandler(IShopingRequestQueryRepository shopingRequestRepository)
+        public SearchShopingRequestQueryHandler(IShopingRequestDataSource shopingRequestDataSource)
         {
-            this.shopingRequestRepository = shopingRequestRepository;
+            this.shopingRequestDataSource = shopingRequestDataSource;
         }
 
         public async Task<SearchShopingRequestModel> Handle(
@@ -44,7 +44,7 @@
 
             int skip = (request.Page - 1) * PerPage;
 
-            return await shopingRequestRepository.GetShopingRequestListings(
+            return await shopingRequestDataSource.GetShopingRequestListings(
                 requestSpecification,
                 searchOrder,
                 skip,
@@ -59,7 +59,7 @@
             Specification<ShopingRequestDetailsModel> requestSpecification
                 = GetShopingRequestSpecification(request);
 
-            int totalRequests = await shopingRequestRepository.Total(
+            int totalRequests = await shopingRequestDataSource.Total(
                 requestSpecification,
                 cancellationToken);
 

@@ -7,25 +7,25 @@
 
     internal class ShopingRequestDetailsQueryHandler : IRequestHandler<ShopingRequestDetailsQuery<ShopingRequestDetailsModel>, ShopingRequestDetailsModel>
     {
-        private readonly ShopingRequestQueryRepository repository;
-        private readonly RequesterQueryRepository requesterQueryRepository;
+        private readonly ShopingRequestDataSource requestDataSource;
+        private readonly RequesterDataSource requesterDataSource;
 
         public ShopingRequestDetailsQueryHandler(
-            ShopingRequestQueryRepository repository,
-            RequesterQueryRepository requesterQueryRepository)
+            ShopingRequestDataSource requestDataSource,
+            RequesterDataSource requesterDataSource)
         {
-            this.repository = repository;
-            this.requesterQueryRepository = requesterQueryRepository;
+            this.requestDataSource = requestDataSource;
+            this.requesterDataSource = requesterDataSource;
         }
 
         public async Task<ShopingRequestDetailsModel> Handle(ShopingRequestDetailsQuery<ShopingRequestDetailsModel> request, CancellationToken cancellationToken)
         {
             ShopingRequestDetailsModel shopingRequest =
-                await this.repository.GetDetailsAsync(request.Id, cancellationToken);
+                await this.requestDataSource.GetDetailsAsync(request.Id, cancellationToken);
 
             if (shopingRequest != null)
             {
-                shopingRequest.Requester = await this.requesterQueryRepository.GetDeatailsAsync(shopingRequest.RequesterId, cancellationToken);
+                shopingRequest.Requester = await this.requesterDataSource.GetDeatailsAsync(shopingRequest.RequesterId, cancellationToken);
             }
 
             return shopingRequest;

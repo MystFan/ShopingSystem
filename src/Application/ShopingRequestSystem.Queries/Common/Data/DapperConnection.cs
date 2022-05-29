@@ -3,7 +3,7 @@
     using Microsoft.Extensions.Options;
     using ShopingRequestSystem.Queries.Common.Contracts;
     using System.Data;
-    using Microsoft.Data.SqlClient;
+    using System.Data.SqlClient;
 
     internal class DapperConnection : IDapperConnection
     {

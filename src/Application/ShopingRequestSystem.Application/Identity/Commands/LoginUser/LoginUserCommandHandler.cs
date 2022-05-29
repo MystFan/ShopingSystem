@@ -19,7 +19,7 @@
             LoginUserCommand request,
             CancellationToken cancellationToken)
         {
-            Result<LoginSuccessModel> result = await identity.Login(request);
+            Result<LoginSuccessModel> result = await identity.Login(new UserInputModel(request.Email, request.Password));
 
             if (!result.Succeeded)
             {

@@ -1,6 +1,7 @@
 ﻿namespace ShopingRequestSystem.Application.Identity.Commands.CreateUser
 {
     using FluentValidation;
+    using ShopingRequestSystem.Application.Identity.Commands.Comman;
     using static ShopingRequestSystem.Domain.Identity.Models.ModelConstants.User;
     using static ShopingRequestSystem.Domain.Identity.Models.ModelConstants.PhoneNumber;
 
@@ -8,15 +9,7 @@
     {
         public CreateUserCommandValidator()
         {
-            RuleFor(u => u.Email)
-                .MinimumLength(MinEmailLength)
-                .MaximumLength(MaxEmailLength)
-                .EmailAddress()
-                .NotEmpty();
-
-            RuleFor(u => u.Password)
-                .MaximumLength(MaxPasswordLength)
-                .NotEmpty();
+            Include(new UserCommandValidator());
 
             RuleFor(u => u.Name)
                 .MinimumLength(MinNameLength)

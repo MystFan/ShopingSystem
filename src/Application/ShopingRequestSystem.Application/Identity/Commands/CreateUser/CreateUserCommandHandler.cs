@@ -42,7 +42,7 @@
             CreateUserCommand request,
             CancellationToken cancellationToken)
         {
-            var result = await identity.Register(request);
+            var result = await identity.Register(new UserInputModel(request.Email, request.Password));
 
             if (!result.Succeeded)
             {

@@ -6,16 +6,16 @@
 
     internal class ContractorDetailsQueryHandler : IRequestHandler<ContractorDetailsQuery<ContractorDetailsModel>, ContractorDetailsModel>
     {
-        private readonly IContractorQueryRepository contractorRepository;
+        private readonly IContractorDataSource contractorDataSource;
 
-        public ContractorDetailsQueryHandler(IContractorQueryRepository contractorRepository)
+        public ContractorDetailsQueryHandler(IContractorDataSource contractorDataSource)
         {
-            this.contractorRepository = contractorRepository;
+            this.contractorDataSource = contractorDataSource;
         }
 
         public async Task<ContractorDetailsModel> Handle(
             ContractorDetailsQuery<ContractorDetailsModel> request,
             CancellationToken cancellationToken)
-            => await contractorRepository.GetDetails(request.Id, cancellationToken);
+            => await contractorDataSource.GetDetails(request.Id, cancellationToken);
     }
 }

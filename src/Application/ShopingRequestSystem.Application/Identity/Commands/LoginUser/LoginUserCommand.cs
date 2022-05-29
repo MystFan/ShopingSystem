@@ -2,9 +2,9 @@
 {
     using MediatR;
     using ShopingRequestSystem.Application.Common;
-    using ShopingRequestSystem.Application.Identity.Commands;
+    using ShopingRequestSystem.Application.Identity.Commands.Comman;
 
-    public class LoginUserCommand : UserInputModel, IRequest<Result<LoginOutputModel>>
+    public class LoginUserCommand : UserCommand, IRequest<Result<LoginOutputModel>>
     {
     }
 }

@@ -2,9 +2,9 @@
 {
     using MediatR;
     using ShopingRequestSystem.Application.Common;
-    using ShopingRequestSystem.Application.Identity.Commands;
+    using ShopingRequestSystem.Application.Identity.Commands.Comman;
 
-    public class CreateUserCommand : UserInputModel, IRequest<Result>
+    public class CreateUserCommand : UserCommand, IRequest<Result>
     {
         public string Name { get; set; } = default!;
 

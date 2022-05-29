@@ -12,7 +12,7 @@
             builder.RegisterType<DapperConnection>().As<IDapperConnection>().PooledInstancePerLifetimeScope();
 
             builder.RegisterAssemblyTypes(System.Reflection.Assembly.GetExecutingAssembly())
-                .AsClosedTypesOf(typeof(IQueryRepository<>))
+                .AsClosedTypesOf(typeof(IDataSource<>))
                 .AsImplementedInterfaces()
                 .InstancePerDependency();
         }
